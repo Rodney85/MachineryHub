@@ -5,18 +5,18 @@ export default function Register() {
   const [role, setRole] = useState<'seeker' | 'lister'>('seeker');
 
   return (
-    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-gray-800/50 p-8 rounded-lg backdrop-blur-sm">
+    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center p-4">
+      <div className="w-full max-w-sm space-y-6 bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-white mb-2">Create an account</h2>
-          <p className="text-gray-400">Join MachineryHub today</p>
+          <h2 className="text-2xl font-bold text-white mb-2">Create an account</h2>
+          <p className="text-gray-400 text-sm">Join MachineryHub today</p>
         </div>
 
-        <form className="mt-8 space-y-6">
-          <div className="space-y-4">
+        <form className="space-y-4">
+          <div className="space-y-3">
             <div>
               <label className="block text-sm font-medium text-gray-300">Account Type</label>
-              <div className="mt-2 grid grid-cols-2 gap-3">
+              <div className="mt-2 grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   className={`px-4 py-2 text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 ${

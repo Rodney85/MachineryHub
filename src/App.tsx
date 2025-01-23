@@ -1,5 +1,5 @@
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Login from './pages/Login';
@@ -13,6 +13,11 @@ function App() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  // Close menu on location change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
+
   const scrollToSection = (sectionId: string) => {
     if (!isHomePage) {
       window.location.href = `/#${sectionId}`;
@@ -23,6 +28,14 @@ function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
+    }
+  };
+
+  const handleNavigation = (path: string) => {
+    setIsMenuOpen(false);
+    // If it's a section scroll, use scrollToSection
+    if (path.startsWith('#')) {
+      scrollToSection(path.substring(1));
     }
   };
 
@@ -110,11 +123,11 @@ function App() {
               className="lg:hidden absolute w-full bg-[#0F172A]/95 backdrop-blur-sm"
             >
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <motion.button whileHover={hoverScale} onClick={() => scrollToSection('hero')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Home</motion.button>
-                <motion.button whileHover={hoverScale} onClick={() => scrollToSection('about')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">About</motion.button>
-                <motion.button whileHover={hoverScale} onClick={() => scrollToSection('listings')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Listings</motion.button>
-                <motion.button whileHover={hoverScale} onClick={() => scrollToSection('testimonials')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Testimonials</motion.button>
-                <motion.button whileHover={hoverScale} onClick={() => scrollToSection('contact')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact</motion.button>
+                <motion.button whileHover={hoverScale} onClick={() => handleNavigation('#hero')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Home</motion.button>
+                <motion.button whileHover={hoverScale} onClick={() => handleNavigation('#about')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">About</motion.button>
+                <motion.button whileHover={hoverScale} onClick={() => handleNavigation('#listings')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Listings</motion.button>
+                <motion.button whileHover={hoverScale} onClick={() => handleNavigation('#testimonials')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Testimonials</motion.button>
+                <motion.button whileHover={hoverScale} onClick={() => handleNavigation('#contact')} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact</motion.button>
               </div>
               
               {/* Auth buttons with divider */}
