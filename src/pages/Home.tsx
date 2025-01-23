@@ -1,5 +1,4 @@
-import { Star, Users, Clock, Shield, ChevronLeft, ChevronRight, MapPin, Phone, Mail } from 'lucide-react';
-import heroImage from '../assets/images/hero-excavator.jpg';
+import { Star, Users, Clock, Shield, MapPin, Phone, Mail } from 'lucide-react';
 import ExcavatorIcon from '../components/ExcavatorIcon';
 
 // Mock data for listings
@@ -62,51 +61,51 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left Content */}
-            <div className="z-10">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Transforming{' '}
-                <span className="text-orange-500">Projects</span>, Powering{' '}
-                <span className="text-orange-500">Progress</span>
+      <section className="min-h-screen pt-20 flex items-center">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Text Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">
+                Find and Rent Construction Equipment
               </h1>
-              <p className="mt-6 text-gray-300 text-lg md:text-xl max-w-xl">
-                Turning your construction challenges into success stories by
-                connecting you with the right machinery, exactly when you need it.
+              <p className="text-gray-400 text-lg lg:text-xl mb-8">
+                Connect with trusted equipment owners and rent the machinery you need for your construction projects.
               </p>
-              
-              {/* Rating */}
-              <div className="flex items-center mt-8 space-x-2">
-                <div className="flex items-center">
-                  {[...Array(4)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-orange-500 text-orange-500" />
-                  ))}
-                  <Star className="w-5 h-5 fill-orange-500/50 text-orange-500" />
+
+              {/* Rating Section */}
+              <div className="flex items-center justify-center lg:justify-start space-x-4 mb-8">
+                <div className="flex -space-x-2">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0F172A]" />
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0F172A]" />
+                  <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User" className="w-10 h-10 rounded-full border-2 border-[#0F172A]" />
+                  <div className="w-10 h-10 rounded-full border-2 border-[#0F172A] bg-gray-800 flex items-center justify-center text-white text-sm">
+                    +2k
+                  </div>
                 </div>
-                <span className="text-white font-semibold">4.9K Rating</span>
-                <span className="text-gray-400">(4.9 average)</span>
+                <div>
+                  <div className="flex text-yellow-500">★★★★★</div>
+                  <div className="text-gray-400 text-sm">Trusted by 2,000+ contractors</div>
+                </div>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors duration-200">
-                  Start Listing
+              {/* Buttons */}
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg text-sm font-medium">
+                  Browse Equipment
                 </button>
-                <button className="px-8 py-3 border border-gray-600 hover:border-gray-500 text-white rounded-md font-medium transition-colors duration-200 flex items-center">
-                  Browse Equipment <span className="ml-2">→</span>
+                <button className="border border-gray-600 hover:border-gray-500 text-white px-6 py-2 rounded-lg text-sm font-medium">
+                  List Equipment
                 </button>
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="hidden lg:block absolute right-0 top-0 w-1/2 h-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] to-transparent z-10" />
+            {/* Image */}
+            <div className="lg:order-last">
               <img
-                src={heroImage}
+                src="/tractor.png"
                 alt="Construction machinery at sunset"
-                className="w-full h-full object-cover"
+                className="w-full h-auto rounded-lg object-cover max-w-sm sm:max-w-md lg:max-w-lg mx-auto"
               />
             </div>
           </div>
@@ -342,6 +341,7 @@ const Home = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
+                <li><a href="#hero" className="hover:text-white transition-colors">Hero</a></li>
                 <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
                 <li><a href="#listings" className="hover:text-white transition-colors">Equipment</a></li>
                 <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
